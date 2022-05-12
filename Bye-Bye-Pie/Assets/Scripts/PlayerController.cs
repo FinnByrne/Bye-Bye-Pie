@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-        //switch (translationAxisName)
     }
     void Update()
     {
@@ -28,11 +27,9 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
-
-        //pieIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) 
     {
         if (other.CompareTag("Pie"))
         {
@@ -45,7 +42,6 @@ public class PlayerController : MonoBehaviour
         {
 
             pieIndicator.gameObject.SetActive(false);
-
             Destroy(other.gameObject);
         }
     }
@@ -57,6 +53,3 @@ public class PlayerController : MonoBehaviour
         pieIndicator.gameObject.SetActive(false);
     }
 }
-
-// 0.005, 1.2, -4.56
-// 24.9, 0, 0
